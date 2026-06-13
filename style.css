@@ -1,0 +1,568 @@
+/* =========================
+   VIVASAYAM 2026 UI DESIGN
+========================= */
+
+:root{
+
+/* RGB Color System */
+
+--primary-rgb: 34,197,94;
+--secondary-rgb: 16,185,129;
+--accent-rgb: 132,204,22;
+
+--dark-rgb: 15,23,42;
+--card-rgb: 255,255,255;
+--text-rgb: 17,24,39;
+
+--bg-gradient:
+linear-gradient(
+135deg,
+rgb(240,253,244),
+rgb(220,252,231),
+rgb(236,253,245)
+);
+
+--glass:
+rgba(255,255,255,0.25);
+
+--border:
+rgba(255,255,255,0.18);
+
+--shadow:
+0 8px 32px rgba(31,38,135,.15);
+
+}
+
+/* DARK MODE */
+
+body.dark{
+
+--card-rgb: 30,41,59;
+--text-rgb: 255,255,255;
+
+--bg-gradient:
+linear-gradient(
+135deg,
+rgb(15,23,42),
+rgb(30,41,59),
+rgb(17,24,39)
+);
+
+--glass:
+rgba(255,255,255,.08);
+
+--border:
+rgba(255,255,255,.1);
+
+}
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:var(--bg-gradient);
+
+color:rgb(var(--text-rgb));
+
+overflow-x:hidden;
+
+transition:.4s ease;
+
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+
+background:
+linear-gradient(
+180deg,
+rgb(var(--primary-rgb)),
+rgb(var(--secondary-rgb))
+);
+
+border-radius:20px;
+}
+
+/* NAVBAR */
+
+.navbar{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 6%;
+
+background:rgba(255,255,255,.1);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid var(--border);
+
+z-index:1000;
+
+}
+
+.logo{
+
+font-size:1.6rem;
+font-weight:700;
+
+background:
+linear-gradient(
+90deg,
+rgb(var(--primary-rgb)),
+rgb(var(--accent-rgb))
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:rgb(var(--text-rgb));
+
+font-weight:500;
+
+transition:.3s;
+}
+
+.nav-links a:hover{
+
+color:rgb(var(--primary-rgb));
+
+}
+
+/* HERO SECTION */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+padding:120px 8%;
+
+background:
+linear-gradient(
+rgba(0,0,0,.35),
+rgba(0,0,0,.35)
+),
+url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854");
+
+background-size:cover;
+background-position:center;
+
+}
+
+.hero-content{
+
+max-width:900px;
+
+animation:fadeUp 1s ease;
+}
+
+.hero h1{
+
+font-size:4rem;
+line-height:1.1;
+
+color:white;
+
+margin-bottom:20px;
+}
+
+.hero p{
+
+font-size:1.2rem;
+
+color:rgba(255,255,255,.9);
+
+margin-bottom:35px;
+}
+
+/* BUTTONS */
+
+.primary-btn{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+135deg,
+rgb(var(--primary-rgb)),
+rgb(var(--secondary-rgb))
+);
+
+color:white;
+
+font-size:1rem;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:
+0 10px 25px rgba(34,197,94,.35);
+
+}
+
+.primary-btn:hover{
+
+transform:
+translateY(-4px)
+scale(1.05);
+
+}
+
+.secondary-btn{
+
+padding:15px 35px;
+
+border-radius:50px;
+
+border:2px solid white;
+
+background:transparent;
+
+color:white;
+
+margin-left:10px;
+
+cursor:pointer;
+}
+
+/* SECTIONS */
+
+section{
+
+padding:100px 8%;
+}
+
+section h2{
+
+font-size:2.8rem;
+
+margin-bottom:50px;
+
+text-align:center;
+
+background:
+linear-gradient(
+90deg,
+rgb(var(--primary-rgb)),
+rgb(var(--secondary-rgb))
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* GLASS CARDS */
+
+.glass-card,
+.service-card,
+.crop-card{
+
+background:var(--glass);
+
+backdrop-filter:blur(20px);
+
+border:1px solid var(--border);
+
+border-radius:24px;
+
+padding:30px;
+
+box-shadow:var(--shadow);
+
+transition:.4s ease;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.glass-card::before,
+.service-card::before,
+.crop-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+
+transition:.6s;
+}
+
+.glass-card:hover::before,
+.service-card:hover::before,
+.crop-card:hover::before{
+
+left:100%;
+}
+
+.glass-card:hover,
+.service-card:hover,
+.crop-card:hover{
+
+transform:
+translateY(-12px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.15);
+}
+
+/* GRID */
+
+.service-grid,
+.crop-grid,
+.about-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+}
+
+/* STATS */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+}
+
+.stat-card{
+
+padding:35px;
+
+text-align:center;
+
+background:var(--glass);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+border:1px solid var(--border);
+}
+
+.counter{
+
+font-size:3rem;
+
+font-weight:700;
+
+color:rgb(var(--primary-rgb));
+}
+
+/* TABLE */
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:var(--glass);
+
+backdrop-filter:blur(15px);
+
+border-radius:20px;
+
+overflow:hidden;
+}
+
+th{
+
+background:
+rgb(var(--primary-rgb));
+
+color:white;
+}
+
+th,td{
+
+padding:18px;
+text-align:center;
+}
+
+/* CONTACT FORM */
+
+.contact-form{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+
+padding:16px;
+
+border:none;
+
+border-radius:15px;
+
+background:
+rgba(255,255,255,.2);
+
+backdrop-filter:blur(10px);
+
+color:inherit;
+}
+
+.contact-form button{
+
+background:
+linear-gradient(
+135deg,
+rgb(var(--primary-rgb)),
+rgb(var(--secondary-rgb))
+);
+
+color:white;
+
+padding:16px;
+
+border:none;
+
+border-radius:15px;
+}
+
+/* FOOTER */
+
+footer{
+
+padding:60px 8%;
+
+text-align:center;
+
+background:
+rgb(15,23,42);
+
+color:white;
+}
+
+/* FLOATING BUTTON */
+
+#topBtn{
+
+position:fixed;
+
+bottom:25px;
+right:25px;
+
+width:55px;
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+rgb(var(--primary-rgb)),
+rgb(var(--secondary-rgb))
+);
+
+color:white;
+
+cursor:pointer;
+
+box-shadow:
+0 10px 25px rgba(34,197,94,.4);
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.nav-links{
+display:none;
+}
+
+section{
+padding:70px 5%;
+}
+
+}
